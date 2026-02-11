@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+group = 'com.mkt'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    // Use JUnit 5 for tests
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+
+    // Mockito for mocking and JUnit 5 integration
+    testImplementation 'org.mockito:mockito-core:4.11.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.11.0'
+    // Optional: allow mocking of final classes and static methods
+    testImplementation 'org.mockito:mockito-inline:4.11.0'
+
+    // Lombok (compile only)
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    implementation "io.reactivex.rxjava3:rxjava:3.0.8"
+
+    // equalsverifier for MarketData value-object tests
+    testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.5'
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
+
+test.finalizedBy jacocoTestReport
