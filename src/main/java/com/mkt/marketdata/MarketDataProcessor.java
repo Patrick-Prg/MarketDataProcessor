@@ -20,7 +20,7 @@ public class MarketDataProcessor implements IMessageListener {
     private static final long WINDOW_SIZE_MS = 1000L;
     private static final int MAX_PUBLISHES_PER_WINDOW = 100;
 
-    // 將所有狀態封裝，減少 Map 查詢次數
+    // State map to keep the latest market data and timestamps for each symbol
     private static class SymbolState {
         MarketData data;
         long lastDataMs = -1;
@@ -40,7 +40,7 @@ public class MarketDataProcessor implements IMessageListener {
 
     @Override
     public void onMessage(MarketData data) {
-        // 在進入點處理好時間轉換，避免在循環中重複處理
+        // Add or update the market data into the state map
         states.computeIfAbsent(data.getSymbol(), k -> new SymbolState()).data = data;
     }
 

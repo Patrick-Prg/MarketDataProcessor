@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mkt.marketdata.MarketDataProcessorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-02-11T18:59:21.257Z" hostname="BOOK-MQU3JT0V9L" time="1.186">
+<testsuite name="com.mkt.marketdata.MarketDataProcessorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-02-12T02:21:52.023Z" hostname="BOOK-MQU3JT0V9L" time="1.142">
   <properties/>
-  <testcase name="testRateLimiting()" classname="com.mkt.marketdata.MarketDataProcessorTest" time="1.123"/>
-  <testcase name="test3180DistinctSymbols()" classname="com.mkt.marketdata.MarketDataProcessorTest" time="0.06"/>
+  <testcase name="testRateLimiting()" classname="com.mkt.marketdata.MarketDataProcessorTest" time="1.081"/>
+  <testcase name="test3180DistinctSymbols()" classname="com.mkt.marketdata.MarketDataProcessorTest" time="0.059"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
