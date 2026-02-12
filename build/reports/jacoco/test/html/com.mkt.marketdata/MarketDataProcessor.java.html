@@ -20,7 +20,7 @@ public class MarketDataProcessor implements IMessageListener {
     private static final long WINDOW_SIZE_MS = 1000L;
     private static final int MAX_PUBLISHES_PER_WINDOW = 100;
 
-    // 撠������������ Map �閰Ｘ活�
+    // State map to keep the latest market data and timestamps for each symbol
 <span class="fc" id="L24">    private static class SymbolState {</span>
         MarketData data;
 <span class="fc" id="L26">        long lastDataMs = -1;</span>
@@ -40,7 +40,7 @@ public class MarketDataProcessor implements IMessageListener {
 
     @Override
     public void onMessage(MarketData data) {
-        // ��脣暺��末��������敺芰銝剝�����
+        // Add or update the market data into the state map
 <span class="fc" id="L44">        states.computeIfAbsent(data.getSymbol(), k -&gt; new SymbolState()).data = data;</span>
 <span class="fc" id="L45">    }</span>
 
